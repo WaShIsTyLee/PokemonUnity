@@ -53,12 +53,14 @@ public class BattleSystem : MonoBehaviour
         yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} usó {move.Base.Name}");
         playerUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(1f);
+        enemyUnit.PlayHitAnimation();
         var damageDetails = enemyUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);
         yield return enemyHud.UpdateHP();
         yield return ShowDamageDetails(damageDetails);
         if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} se debilitó");
+            enemyUnit.PlayFaintedAnimation();
         }
         else
         {
@@ -72,12 +74,14 @@ public class BattleSystem : MonoBehaviour
         yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} usó {move.Base.Name}");
         enemyUnit.PlayAttackAnimation();
         yield return new WaitForSeconds(1f);
+        playerUnit.PlayHitAnimation();
         var damageDetails = playerUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);
         yield return playerHud.UpdateHP();
         yield return ShowDamageDetails(damageDetails);
         if (damageDetails.Fainted)
         {
             yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} se debilitó");
+            playerUnit.PlayFaintedAnimation();
         }
         else
         {

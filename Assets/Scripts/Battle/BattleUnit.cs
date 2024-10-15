@@ -16,10 +16,12 @@ public class BattleUnit : MonoBehaviour
 
     Image image;
     Vector3 originalPos;
+    Color originalColor;
     private void Awake()
     {
         image = GetComponent<Image>();
         originalPos = image.transform.localPosition;
+        originalColor = image.color;
     }
 
     public void Setup()
@@ -53,6 +55,18 @@ public class BattleUnit : MonoBehaviour
 
         sequence.Append(image.transform.DOLocalMoveX(originalPos.x, 0.25f));
 
+    }
+
+    public void PlayHitAnimation()
+    {
+        var sequence = DOTween.Sequence();
+        sequence.Append(image.DOColor(Color.gray, 0.1f));
+        sequence.Append(image.DOColor(originalColor, 0.1f));
+    }
+    public void PlayFaintedAnimation(){
+        var sequence = DOTween.Sequence();
+        sequence.Append(image.transform.DOLocalMoveY(originalPos.y - 150f, 0.5f));
+        sequence.Join(image.DOFade(0f, 0.5f));
     }
 
 }
