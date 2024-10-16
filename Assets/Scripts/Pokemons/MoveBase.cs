@@ -42,5 +42,15 @@ public class MoveBase : ScriptableObject
     {
         get { return pp; }
     }
-
+    public bool IsSpecial{
+        get{
+            if(type==PokemonBase.PokemonType.Fire||type==PokemonBase.PokemonType.Water
+            ||type==PokemonBase.PokemonType.Grass||type==PokemonBase.PokemonType.Ice||type==PokemonBase.PokemonType.Electric||type==PokemonBase.PokemonType.Dragon ){
+              return true;  
+            }
+            else{
+                return false;
+            }
+        }
+    }
 }

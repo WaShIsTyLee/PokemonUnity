@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
-
+using System;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public event Action onEncountered;
     public LayerMask solidObjectsLayer;
     public LayerMask grassLayer;
     private bool isMoving;
@@ -15,7 +16,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void HandleUpdate()
     {
         if (!isMoving)
         {
@@ -78,9 +79,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
         {
-            if (Random.Range(1, 101) <= 10)
+            if (UnityEngine.Random.Range(1, 101) <= 10)
             {
-                Debug.Log("¡Encontraste un Pokémon salvaje!");
+                    animator.SetBool("isMoving", false);
+                    onEncountered();
             }
         }
     }
