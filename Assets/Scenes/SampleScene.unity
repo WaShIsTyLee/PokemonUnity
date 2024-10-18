@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
+  hud: {fileID: 1733350465}
 --- !u!1 &99835874
 GameObject:
   m_ObjectHideFlags: 0
@@ -7519,8 +7520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 85170554}
   enemyUnit: {fileID: 2056625693}
-  playerHud: {fileID: 1733350465}
-  enemyHud: {fileID: 1092645906}
   dialogBox: {fileID: 99835878}
   partyScreen: {fileID: 520722517}
 --- !u!1 &323820501
@@ -24716,7 +24715,13 @@ MonoBehaviour:
   - _base: {fileID: 11400000, guid: c7310c39883429f4e936d16b1ede2d66, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: 3c0aca77b6f99d443b71d275584f6336, type: 2}
+    level: 2
+  - _base: {fileID: 11400000, guid: 3c0aca77b6f99d443b71d275584f6336, type: 2}
+    level: 3
+  - _base: {fileID: 11400000, guid: 3c0aca77b6f99d443b71d275584f6336, type: 2}
     level: 5
+  - _base: {fileID: 11400000, guid: 3c0aca77b6f99d443b71d275584f6336, type: 2}
+    level: 6
 --- !u!1 &1092645905
 GameObject:
   m_ObjectHideFlags: 0
@@ -26292,6 +26297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
+  hud: {fileID: 1092645906}
 --- !u!1 &2064567710
 GameObject:
   m_ObjectHideFlags: 0
@@ -26795,6 +26801,10 @@ PrefabInstance:
     - target: {fileID: 3265380974815194081, guid: 7a031feb9569e8d46a16d5ec24cfebc8, type: 3}
       propertyPath: m_Name
       value: PartyMember
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425177417938735658, guid: 7a031feb9569e8d46a16d5ec24cfebc8, type: 3}
+      propertyPath: highlightedColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
