@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Arbol
+  - Arbol1
   - SolidObjects
   - LongGrass
   - 
@@ -40,6 +40,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Arbol1
+    uniqueID: 3278816241
+    locked: 0
+  - name: Arbol
+    uniqueID: 4025565181
     locked: 0
   - name: Background
     uniqueID: 341749975

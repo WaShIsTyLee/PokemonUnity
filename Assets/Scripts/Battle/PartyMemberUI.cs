@@ -24,8 +24,8 @@ public class PartyMemberUI : MonoBehaviour
 
     public void SetSelected(bool selected){
                 if(selected)
-                nameText.color=highlightedColor;
+                nameText.color=Color.red;
                 else
-                nameText.color=Color.black;
+                nameText.color=Color.white;
     }
 }
