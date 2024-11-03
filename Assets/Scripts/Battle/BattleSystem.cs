@@ -18,6 +18,7 @@ public class BattleSystem : MonoBehaviour
     PokemonParty playerParty;
     Pokemon wildPokemon;
     int currentMember;
+    int escapeAttemps;
 
 
     public void StartBattle(PokemonParty playerParty, Pokemon wildPokemon)
@@ -170,7 +171,9 @@ public class BattleSystem : MonoBehaviour
             {
                 OpenPartyScreen();
             }
-            else if (currentAction == 3) { }
+            else if (currentAction == 3) {
+                    StartCoroutine(TryToEscape());
+             }
 
         }
     }
@@ -242,7 +245,7 @@ public class BattleSystem : MonoBehaviour
         IEnumerator SwitchPokemon(Pokemon newPokemon)
         {
             if(playerUnit.Pokemon.HP>0){
-            yield return dialogBox.TypeDialog($"Come back {playerUnit.Pokemon.Base.Name}");
+            yield return dialogBox.TypeDialog($"Vuelve {playerUnit.Pokemon.Base.Name}");
             playerUnit.PlayFaintedAnimation();
             yield return new WaitForSeconds(2f);
         }
@@ -252,6 +255,31 @@ public class BattleSystem : MonoBehaviour
 
             StartCoroutine(EnemyMove());
         }
+        IEnumerator TryToEscape(){
+            escapeAttemps++;
+        int playerSpeed=playerUnit.Pokemon.Speed;
+        int enemySpeed=enemyUnit.Pokemon.Speed;
+        
+        if(enemySpeed<playerSpeed){
+            yield return dialogBox.TypeDialog("Has huido exitosamente");
+            BattleOver(true);
+        }
+            else{
+                float f= (playerSpeed* 128) / enemySpeed +30 * escapeAttemps;
+                f= f % 256;
+
+                if(UnityEngine.Random.Range(0,256) <f){
+                     yield return dialogBox.TypeDialog("Has huido exitosamente");
+                     BattleOver(true);   
+                }else
+                {
+                                yield return dialogBox.TypeDialog("No pudiste escapar");
+                               StartCoroutine(EnemyMove());
+
+                }
+            }
+        }
+        
 }
 
 

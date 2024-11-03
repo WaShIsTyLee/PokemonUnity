@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Pidgey
   m_EditorClassIdentifier: 
   name: Pidgey
-  description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type1: 10
-  type2: 1
-  maxHp: 40
-  attack: 45
-  defense: 40
-  spAttack: 35
-  spDefense: 35
-  speed: 56
+  description: pajaro
+  frontSprite: {fileID: -578633554, guid: c5c64568ce9d1e24b933c3d954577d9c, type: 3}
+  backSprite: {fileID: -2144464756, guid: 864baf6d1dbd8cc41b4d95bf3c141739, type: 3}
+  type1: 1
+  type2: 10
+  maxHp: 20
+  attack: 20
+  defense: 20
+  spAttack: 20
+  spDefense: 20
+  speed: 20
   learnableMoves:
+  - moveBase: {fileID: 11400000, guid: bce9cc9bb39be784c87afdee24116acb, type: 2}
+    level: 1
   - moveBase: {fileID: 11400000, guid: 8b43325ea4e531449b1f060b957b16bf, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 721b68ed4096ff34995bfcff7bcdf746, type: 2}
     level: 1
