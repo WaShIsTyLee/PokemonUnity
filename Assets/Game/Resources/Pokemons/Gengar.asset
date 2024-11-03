@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76eb0cf625451c4c806e3a458f501eb, type: 3}
+  m_Name: Gengar
+  m_EditorClassIdentifier: 
+  name: Gengar
+  description: Gengar
+  frontSprite: {fileID: 1518443391, guid: 7a01ae9461735d146b7e301c29ed039f, type: 3}
+  backSprite: {fileID: 1095281754, guid: 7a01ae9461735d146b7e301c29ed039f, type: 3}
+  type1: 14
+  type2: 8
+  maxHp: 100
+  attack: 80
+  defense: 70
+  spAttack: 120
+  spDefense: 70
+  speed: 115
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 76671b8280e17934dab9217140fc62b9, type: 2}
+    level: 1
