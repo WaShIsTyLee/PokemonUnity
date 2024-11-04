@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pokeball
+  - Gem
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Gems
   - Water
   - UI
   - Arbol
@@ -41,6 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Gems
+    uniqueID: 1507460327
+    locked: 0
   - name: Arbol1
     uniqueID: 3278816241
     locked: 0
@@ -55,4 +60,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3807135363
+    locked: 0
+  - name: Pokeball
+    uniqueID: 1819105899
     locked: 0

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 public enum BattleState { Start, ActionSelection, MoveSelection, PerfomMove, Busy,PartyScreen,BatteOver }
+public enum BattleAction{Move,SwitchPokemon,useItem,Run}
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] BattleUnit playerUnit;
