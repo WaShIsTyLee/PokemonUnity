@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
 {
     pointsEarned += amount;
     
-    if (pointsEarned >= pointsToFinish)
+    if (pointsEarned > pointsToFinish)
     {        if (gameOverScreen != null) {
             gameOverScreen.SetActive(true);
         } else {

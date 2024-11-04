@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Collector : MonoBehaviour
 {
-    public int itemsToCollect = 3; // Número de ítems necesarios para completar la misión
+    public int itemsToCollect = 4; // Número de ítems necesarios para completar la misión
     private int itemsCollected = 0; // Contador de ítems recogidos
     public GameObject missionCompleteCanvas;
 
@@ -31,6 +31,7 @@ public class Collector : MonoBehaviour
 
     // Método para activar el Canvas de "Misión Completada"
     private void ShowMissionCompleteCanvas() {
+         Time.timeScale = 0f;
         if (missionCompleteCanvas != null) {
             missionCompleteCanvas.SetActive(true);
         }
@@ -39,6 +40,8 @@ public class Collector : MonoBehaviour
     // Método para el botón "Play Again"
     public void PlayAgain() {
         // Recarga la escena actual
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("StartScene");
+        Time.timeScale = 1f;
+
     }
 }

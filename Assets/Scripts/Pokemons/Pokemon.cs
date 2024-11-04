@@ -26,6 +26,7 @@ public class Pokemon
         }
     }
     public int HP { get; set; }
+    public Move CurrentMove{ get; set; }
 
     public List<Move> Moves { get; set; }
 
