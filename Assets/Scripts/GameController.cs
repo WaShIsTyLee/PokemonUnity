@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+
 public enum GameState { FreeRoam, Battle,Dialog }
 public class GameController : MonoBehaviour
 {
         [SerializeField] PlayerController playerController;
         [SerializeField] BattleSystem battleSystem;
         [SerializeField] Camera worldCamera;
+   int pointsToFinish;
+    int pointsEarned;
+    GameObject[] gems;
+    public GameObject gameOverScreen;
 
         GameState state;
         private void Start()
@@ -22,7 +29,17 @@ public class GameController : MonoBehaviour
                            state=GameState.FreeRoam;
                 };
 
+        pointsToFinish = 3;
+        gems = GameObject.FindGameObjectsWithTag("Gem");
+        foreach (GameObject gem in gems) {
+            pointsToFinish += gem.GetComponent<Gem>().worth;
         }
+        pointsEarned = 0;
+        Gem.OnGemCollect += IncreasePointsEarned;  
+
+        }
+
+
         void StartBattle()
         {
                 state = GameState.Battle;
@@ -55,4 +72,17 @@ public class GameController : MonoBehaviour
                         DialogManager.Instance.HandleUpdate();
                 }
         }
+ void IncreasePointsEarned(int amount)
+{
+    pointsEarned += amount;
+    
+    if (pointsEarned >= pointsToFinish)
+    {        if (gameOverScreen != null) {
+            gameOverScreen.SetActive(true);
+        } else {
+            Debug.LogWarning("gameOverScreen no ha sido asignado en el Inspector.");
+        }
+    }
+}
+
 }
